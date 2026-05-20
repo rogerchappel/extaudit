@@ -1,0 +1,18 @@
+{
+  "project": "extaudit",
+  "repo": "rogerchappel/extaudit",
+  "waves": [
+    {"id": "wave0", "name": "Scaffold", "status": "done", "description": "Baseline project structure, git init, package.json"},
+    {"id": "wave1", "name": "Core Implementation", "status": "pending", "description": "Main feature implementation"},
+    {"id": "wave2", "name": "Rules & Analysis", "status": "pending", "description": "Secondary features, analysis engine"},
+    {"id": "wave3", "name": "Reporting & Output", "status": "pending", "description": "CLI commands, reports, integration tests"},
+    {"id": "wave4", "name": "Polish & Release", "status": "pending", "description": "README, smoke tests, CI, package metadata"}
+  ],
+  "verification": {
+    "test": "npm test",
+    "build": "npm run build",
+    "validate": "bash scripts/validate.sh"
+  },
+  "github": "https://github.com/rogerchappel/extaudit",
+  "push": "direct to main"
+}
