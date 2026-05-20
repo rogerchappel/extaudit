@@ -1,79 +1,92 @@
-# Contributing
+# Contributing to extaudit
 
-Thanks for helping improve `extaudit`.
+Welcome! This guide covers how to contribute to extaudit development.
 
-This project values small, reviewable contributions with clear verification.
+## Development Setup
 
-## Issues
+### Prerequisites
 
-Before opening an issue:
+- Node.js >= 18
+- npm (or pnpm/yarn)
+- TypeScript 5.x (installed as dev dependency)
 
-- Search existing issues.
-- Confirm the issue applies to `extaudit`.
-- Include enough context for maintainers to understand or reproduce the request.
+### Install Dependencies
 
-Bug reports should include:
-
-- What happened.
-- What you expected.
-- Steps to reproduce.
-- Relevant logs, screenshots, or files.
-- The smallest verification step that demonstrates the issue.
-
-Feature requests should include:
-
-- The use case.
-- Why the current project does not solve it.
-- Risks or compatibility concerns.
-- Suggested files or behavior that may need to change.
-
-## Pull Requests
-
-Pull requests should:
-
-- Focus on one reviewable intent.
-- Use a branch.
-- Follow Conventional Commits.
-- Include tests or verification appropriate to the change.
-- Update documentation when behavior or usage changes.
-- Avoid unrelated formatting or dependency churn.
-- Avoid secrets, private contact details, and project-specific sensitive information.
-
-## Review Pack
-
-Use this format for meaningful changes:
-
-```md
-## Review Pack
-Repo:
-Branch:
-PR:
-Task:
-Status: done / blocked / needs review
-Summary:
-Commits:
-Files changed:
-Verification:
-Risk level:
-Rollback plan:
-Human decision needed:
-Next recommended task:
+```bash
+npm install
 ```
 
-## Verification
+### Build
 
-Every contribution should include verification.
+```bash
+npm run build
+```
 
-Examples:
+This compiles `src/**/*.ts` → `dist/**/*.js`.
 
-- Documentation: inspect rendered Markdown or review the diff.
-- Tests: run the targeted test command.
-- Types: run the project typecheck.
-- Build: run the smallest build command that covers the change.
-- Manual QA: provide exact steps and observed result.
+### Run Tests
 
-If verification cannot be run, explain why and provide the exact command maintainers should run.
+```bash
+# Run test suite
+node --test tests/*.test.js
 
-## Maintainer Review
+# Or use npm script
+npm test
+```
 
-Maintainers may request narrower scope, clearer verification, additional tests, or safer defaults before merging.
+### Smoke Test
+
+```bash
+npm run smoke
+```
+
+This scans the `fixtures/example-extensions/` directory with the built CLI.
+
+## Code Style
+
+- TypeScript strict mode (`strict: true`)
+- ESM modules (Node16)
+- Single-quoted strings
+- Semicolons required
+- No type assertions unless necessary
+
+## Making Changes
+
+### Adding a New Rule
+
+1. Add the rule definition to `src/rules/defaultRules.ts`
+2. Add test coverage in `tests/rules.test.js`
+3. Add a fixture extension in `fixtures/example-extensions/` that triggers the rule
+4. Update the rules table in `README.md`
+
+### Adding a New CLI Command
+
+1. Add command handler in `src/commands/<name>.ts`
+2. Register command in `src/index.ts` with commander
+3. Add integration tests in `tests/cli.test.js`
+
+## Pull Request Process
+
+1. Create a feature branch from `main`
+2. Make your changes
+3. Ensure `npm test` passes
+4. Ensure `npm run build` succeeds
+5. Run `bash scripts/validate.sh`
+6. Submit PR with a clear description of changes
+
+## Commit Messages
+
+Follow conventional commits:
+
+- `feat:` new features
+- `fix:` bug fixes  
+- `test:` test additions/changes
+- `docs:` documentation updates
+- `chore:` tooling, config, dependencies
+- `ci:` CI/CD changes
+
+Keep commit messages concise and informative. Each commit should be atomic.
+
+## Questions?
+
+Open an issue on [GitHub](https://github.com/rogerchappel/extaudit/issues).
