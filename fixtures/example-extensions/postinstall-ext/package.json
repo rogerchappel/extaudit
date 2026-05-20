@@ -1,0 +1,17 @@
+{
+  "name": "postinstall-extension",
+  "version": "3.0.0",
+  "displayName": "Postinstall Extension",
+  "description": "Extension that runs a postinstall script",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "activationEvents": [
+    "onCommand:postinstall.hello"
+  ],
+  "main": "./out/extension.js",
+  "dependencies": {},
+  "scripts": {
+    "postinstall": "echo 'Setting up extension...'"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "network-extension",
+  "version": "2.0.0",
+  "displayName": "Network Extension",
+  "description": "Extension with network access patterns",
+  "publisher": "known-publisher",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "activationEvents": [
+    "onCommand:network.sync",
+    "onStartupRemote"
+  ],
+  "main": "./out/extension.js",
+  "dependencies": {
+    "node-fetch": "^3.0.0",
+    "got": "^14.0.0"
+  },
+  "scripts": {}
+}

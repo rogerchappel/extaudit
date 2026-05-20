@@ -1,0 +1,25 @@
+{
+  "name": "benign-extension",
+  "version": "1.0.0",
+  "displayName": "Benign Extension",
+  "description": "A safe, clean extension with no risky behavior",
+  "publisher": "trusted-publisher",
+  "verifiedCreator": true,
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "activationEvents": [
+    "onCommand:benign.doSomething"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "benign.doSomething",
+        "title": "Do Something"
+      }
+    ]
+  },
+  "dependencies": {},
+  "scripts": {}
+}
