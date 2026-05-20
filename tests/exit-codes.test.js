@@ -11,7 +11,14 @@ const fixturesDir = join(process.cwd(), "fixtures/example-extensions");
 
 describe("CLI scan exit codes", () => {
   it("scan --json returns valid JSON on stdio", async () => {
-    const { stdout } = await execAsync(`node ${cliPath} scan ${fixturesDir} --json`);
+    let stdout;
+    try {
+      const result = await execAsync(`node ${cliPath} scan ${fixturesDir} --json`);
+      stdout = result.stdout;
+    } catch (err) {
+      // scan exits with 1 when max score exceeds threshold, but stdout still has JSON
+      stdout = err.stdout;
+    }
     const data = JSON.parse(stdout);
     assert.ok(Array.isArray(data.extensions));
     assert.ok(typeof data.summary === "object");
@@ -19,11 +26,14 @@ describe("CLI scan exit codes", () => {
     assert.ok("version" in data);
   });
 
-  it("scan with non-existent directory shows error", async () => {
+  it("scan with non-existent directory exits non-zero", async () => {
+    let caught = false;
     try {
       await execAsync(`node ${cliPath} scan /nonexistent/path`);
     } catch (err) {
-      // exit(1) is expected when no extensions found
+      caught = true;
+      assert.ok(err.code !== 0, "Should exit non-zero for no extensions found");
     }
+    assert.ok(caught, "Expected command to fail");
   });
 });
