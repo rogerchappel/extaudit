@@ -13,8 +13,7 @@
     "README.md"
   ],
   "scripts": {
-    "test": "node --test --experimental-test-coverage dist/tests/",
-    "dev:test": "node --test --experimental-test-coverage tests/",
+    "test": "node --test --experimental-test-coverage 'tests/**/*.test.js'",
     "build": "tsc",
     "prepublishOnly": "npm run build",
     "smoke": "node dist/index.js scan fixtures/example-extensions/",
@@ -44,10 +43,10 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "commander": "^12.1.0"
+    "commander": "^14.0.3"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
+    "@types/node": "^22",
     "typescript": "^5.6.0"
   }
 }

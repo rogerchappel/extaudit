@@ -4,7 +4,7 @@ import assert from "node:assert";
 import { exec } from "node:child_process";
 import { join } from "node:path";
 import { promisify } from "node:util";
-import { writeFileSync, mkdirSync, rmSync } from "node:fs";
+import { writeFileSync, mkdirSync, rmSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 
 const execAsync = promisify(exec);
@@ -70,7 +70,7 @@ describe("Report Command", () => {
     writeFileSync(tmpFile, JSON.stringify(sampleScanResult));
     try {
       await execAsync(`node ${cliPath} report ${tmpFile} --format markdown --output ${outFile}`);
-      const content = require("node:fs").readFileSync(outFile, "utf-8");
+      const content = readFileSync(outFile, "utf-8");
       assert.ok(content.includes("# extaudit Security Report"));
     } finally {
       rmSync(tmpFile, { force: true });
