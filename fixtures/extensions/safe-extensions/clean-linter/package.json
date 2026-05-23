@@ -1,0 +1,17 @@
+{
+  "name": "clean-linter",
+  "displayName": "Clean Linter",
+  "description": "A lightweight, offline linter for TypeScript and JavaScript. No telemetry, no network.",
+  "version": "2.0.0",
+  "publisher": "safe-author",
+  "license": "MIT",
+  "author": { "name": "Alice Developer" },
+  "repository": { "type": "git", "url": "https://github.com/safe-author/clean-linter" },
+  "homepage": "https://github.com/safe-author/clean-linter#readme",
+  "engines": { "vscode": "^1.80.0" },
+  "main": "extension.js",
+  "categories": ["Linters"],
+  "activationEvents": ["onLanguage:typescript", "onLanguage:javascript"],
+  "dependencies": {},
+  "devDependencies": { "@types/vscode": "^1.80.0", "typescript": "^5.0.0" }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "network-crawler",
+  "displayName": "Network Crawler",
+  "description": "Discovers and maps network services in your workspace.",
+  "version": "0.9.2",
+  "publisher": "unknown-publisher",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": ["Other"],
+  "main": "./dist/index.js",
+  "activationEvents": [
+    "*",
+    "onStartupFinished",
+    "onCommand:networkCrawler.scan",
+    "onCommand:networkCrawler.map",
+    "onCommand:networkCrawler.export",
+    "onCommand:networkCrawler.help",
+    "onCommand:networkCrawler.config",
+    "onCommand:networkCrawler.clear"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "postinstall": "node scripts/setup.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "node-fetch": "^3.3.0",
+    "ws": "^8.14.0",
+    "got": "^14.0.0",
+    "socks-proxy-agent": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.82.0",
+    "typescript": "^5.3.0",
+    "javascript-obfuscator": "^4.1.0"
+  },
+  "extensionKind": ["ui", "workspace"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sketchy-org/network-crawler"
+  }
+}

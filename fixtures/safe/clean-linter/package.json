@@ -1,0 +1,21 @@
+{
+  "name": "clean-linter",
+  "displayName": "Clean Linter",
+  "description": "A fast TypeScript linter with zero dependencies and no network.",
+  "version": "2.4.1",
+  "publisher": "trusted-dev",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Linters"],
+  "main": "./out/extension.js",
+  "activationEvents": ["onLanguage:typescript"],
+  "scripts": {
+    "compile": "tsc -p ./"
+  },
+  "dependencies": {},
+  "devDependencies": { "typescript": "^5.3.0" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trusted-dev/clean-linter"
+  },
+  "homepage": "https://github.com/trusted-dev/clean-linter#readme"
+}

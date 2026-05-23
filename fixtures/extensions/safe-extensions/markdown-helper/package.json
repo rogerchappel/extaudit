@@ -1,0 +1,17 @@
+{
+  "name": "markdown-helper",
+  "displayName": "Markdown Helper",
+  "description": "Quick actions for markdown documents: insert tables, checkboxes, and code blocks.",
+  "version": "3.1.0",
+  "publisher": "safe-author",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/safe-author/markdown-helper" },
+  "homepage": "https://github.com/safe-author/markdown-helper#readme",
+  "engines": { "vscode": "^1.75.0" },
+  "main": "extension.js",
+  "categories": ["Other"],
+  "activationEvents": ["onLanguage:markdown"],
+  "scripts": { "pretest": "tsc -p ./" },
+  "dependencies": {},
+  "devDependencies": { "@types/vscode": "^1.75.0", "typescript": "^5.0.0", "mocha": "^10.0.0" }
+}

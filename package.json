@@ -1,0 +1,60 @@
+{
+  "name": "extaudit",
+  "version": "0.1.0",
+  "description": "Local-first CLI auditor for VSCode/Cursor extension manifests. Scan package.json files for suspicious permissions, network patterns, and security anomalies. Produces risk-scored JSON/Markdown reports.",
+  "license": "MIT",
+  "author": "Roger Chappel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rogerchappel/extaudit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rogerchappel/extaudit/issues"
+  },
+  "homepage": "https://github.com/rogerchappel/extaudit#readme",
+  "keywords": [
+    "vscode",
+    "cursor",
+    "extension",
+    "audit",
+    "security",
+    "manifest",
+    "cli",
+    "supply-chain"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "extaudit": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "dev": "tsx src/cli.ts",
+    "check": "tsc --noEmit",
+    "lint": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:dist": "node --test test/*.test.mjs",
+    "smoke": "node dist/cli.js scan fixtures --format json",
+    "prepublishOnly": "npm run build",
+    "release:check": "bash scripts/validate.sh",
+    "fix": "echo 'No auto-fixer — review reports manually'"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.5",
+    "tsx": "4.19.3",
+    "typescript": "5.7.3",
+    "vitest": "^2.1.0"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}
