@@ -41,8 +41,9 @@
     "test:watch": "vitest",
     "test:dist": "node --test test/*.test.mjs",
     "smoke": "node dist/cli.js scan fixtures --format json",
+    "package:smoke": "npm pack --dry-run",
     "prepublishOnly": "npm run build",
-    "release:check": "bash scripts/validate.sh",
+    "release:check": "npm run check && npm test && npm run build && npm run smoke && npm run package:smoke",
     "fix": "echo 'No auto-fixer — review reports manually'"
   },
   "engines": {

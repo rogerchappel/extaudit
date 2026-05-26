@@ -5,7 +5,6 @@
 <p align="center">
   <img alt="Platform" src="https://img.shields.io/badge/platform-VSCode%20%7C%20Cursor-blue">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-green">
-  <a href="https://github.com/rogerchappel/extaudit/actions"><img alt="Tests" src="https://img.shields.io/badge/tests-23%20passing-brightgreen"></a>
 </p>
 
 ## Why?
@@ -144,6 +143,10 @@ npm run dev -- scan fixtures/extensions
 
 # Run smoke tests
 npm run smoke
+
+# Package and release readiness
+npm pack --dry-run
+npm run release:check
 
 # Full validation
 bash scripts/validate.sh
