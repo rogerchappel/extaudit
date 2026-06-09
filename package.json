@@ -29,7 +29,10 @@
   },
   "files": [
     "dist",
-    "docs"
+    "docs",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
   ],
   "scripts": {
     "build": "tsc",
