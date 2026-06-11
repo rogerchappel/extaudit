@@ -184,3 +184,17 @@ MIT — See [LICENSE](LICENSE) for details.
 ---
 
 _This tool performs static analysis only. It does not execute extension code, modify your system, or transmit any data. All scanning is 100% offline and local-first._
+
+## Development
+
+Run the same checks locally before opening a change:
+
+```sh
+npm ci
+npm run check
+npm run build
+npm test
+npm run smoke
+npm run package:smoke
+npm run release:check
+```
