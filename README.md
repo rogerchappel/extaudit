@@ -54,6 +54,14 @@ extaudit scan ./extensions --max-score 25
 | `extaudit version` | Show version |
 | `extaudit help` | Show help |
 
+## Verification
+
+Run the full local gate before changing scanner behavior or release metadata:
+
+```bash
+npm run release:check
+```
+
 ## Risk Categories
 
 | Category | Score Range | Meaning |
