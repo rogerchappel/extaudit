@@ -206,3 +206,7 @@ npm run smoke
 npm run package:smoke
 npm run release:check
 ```
+
+## Limitations
+
+extaudit is designed for local, read-only analysis. It reports evidence and suggested review points, but it does not prove a system is secure, complete, or production-ready by itself. Review generated output before using it in release, compliance, or incident workflows.
